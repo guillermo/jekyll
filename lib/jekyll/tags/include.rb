@@ -12,7 +12,7 @@ module Jekyll
       end
 
       Dir.chdir(File.join(context.registers[:site].source, '_includes')) do
-        choices = Dir['**/*'].reject { |x| File.symlink?(x) }
+        choices = Dir['**/*']
         if choices.include?(@file)
           source = File.read(@file)
           partial = Liquid::Template.parse(source)
